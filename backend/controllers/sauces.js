@@ -51,15 +51,17 @@ exports.getAllSauces = (req, res, next) => {
     .catch(error => res.status(400).json({ error }));
 };
 
-exports.likeSauce = (req, res, next) => {
+exports.likeDislikeSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
   .then(sauce => {
-    sauce.usersLiked = sauce.usersLiked.filter(function(value) { // delete userId if usersLiked array contains it
-      return value !== req.body.userId;
-    });
-    sauce.usersDisliked = sauce.usersDisliked.filter(function(value) { // delete userId if usersDisliked array contains it
-      return value !== req.body.userId;
-    });
+    if (req.body.like == 0) {
+      sauce.usersLiked = sauce.usersLiked.filter(function(value) { // delete userId if usersLiked array contains it
+        return value !== req.body.userId;
+      });
+      sauce.usersDisliked = sauce.usersDisliked.filter(function(value) { // delete userId if usersDisliked array contains it
+        return value !== req.body.userId;
+      });
+    }
     if (req.body.like == 1) { // put userId in usersLiked array
       sauce.usersLiked.push(req.body.userId);
     };
