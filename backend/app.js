@@ -5,9 +5,10 @@ const app = express(); // create application express
 const saucesRoutes = require("./routes/sauces");
 const userRoutes = require("./routes/user");
 const path = require("path");
+require("dotenv").config();
 
 // connect app to database
-mongoose.connect("mongodb+srv://sopekocko:awuUApk2UIjKFyZu@sopekocko.wmof7.mongodb.net/SoPekocko?retryWrites=true&w=majority",
+mongoose.connect(process.env.MONDODB_LINK,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log("Connexion à MongoDB réussie !"))
