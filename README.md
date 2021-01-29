@@ -10,4 +10,4 @@ Démarrer `ng serve` pour avoir accès au serveur de développement. Rendez-vous
 
 ## Backend server start
 
-Dans le dossier racine exécutez `cd backend` pour accéder au dossier 'backend'. Puis exécutez `nodemon server` pour démarrer le serveur de l'application.
+Depuis le dossier racine exécutez `cd backend` pour accéder au dossier 'backend'. Puis exécutez `nodemon server` pour démarrer le serveur de l'application.
